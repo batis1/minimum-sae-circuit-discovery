@@ -9,10 +9,17 @@ This repo contains Google Colab notebooks for minimum SAE circuit discovery expe
 - It runs a magnitude top-K baseline and plots circuit size vs faithfulness.
 - `minimum_sae_circuit_discovery_v002_wanda_position_sanity.ipynb` adds layer reconstruction sanity checks, error-preserving SAE masking, Wanda-style decoder-norm times activation-norm ranking, and final-token ranking.
 - `minimum_sae_circuit_discovery_v003_role_conditioned_circuits.ipynb` tests semantic-role-conditioned SAE circuits, where masks select `role x feature` nodes instead of global features.
+- `minimum_sae_circuit_discovery_v004_soft_gate_threshold_sweep.ipynb` evaluates learned role-feature gates directly with soft top-K and probability-threshold sweeps.
 
 ## Open In Colab
 
-Open the v3 notebook from Colab with:
+Open the v4 notebook from Colab with:
+
+```text
+https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v004_soft_gate_threshold_sweep.ipynb
+```
+
+The v3 notebook is available at:
 
 ```text
 https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v003_role_conditioned_circuits.ipynb
@@ -73,6 +80,19 @@ MyDrive/minimum_sae_circuit_discovery/
     run_manifest.json
     role_conditioned_results.csv
     role_conditioned_pareto.png
+  cache/v004_soft_gate_threshold_sweep/
+    role_feature_stats_layer8_ioi.pt
+  runs/v004_soft_gate_threshold_sweep/trial_YYYYMMDD_HHMMSS/
+    run_manifest.json
+    smoke_soft_gate_results.csv
+    soft_gate_results.csv
+    soft_gate_pareto.png
+    learned_soft_gate_trace.csv
+  latest/v004_soft_gate_threshold_sweep/
+    run_manifest.json
+    soft_gate_results.csv
+    soft_gate_pareto.png
+    learned_soft_gate_trace.csv
 ```
 
-For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v004_lambda_sweep`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
+For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v005_role_ablation`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
