@@ -8,10 +8,17 @@ This repo contains Google Colab notebooks for minimum SAE circuit discovery expe
 - It generates IOI-style prompts inside the notebook.
 - It runs a magnitude top-K baseline and plots circuit size vs faithfulness.
 - `minimum_sae_circuit_discovery_v002_wanda_position_sanity.ipynb` adds layer reconstruction sanity checks, error-preserving SAE masking, Wanda-style decoder-norm times activation-norm ranking, and final-token ranking.
+- `minimum_sae_circuit_discovery_v003_role_conditioned_circuits.ipynb` tests semantic-role-conditioned SAE circuits, where masks select `role x feature` nodes instead of global features.
 
 ## Open In Colab
 
-Open the v2 notebook from Colab with:
+Open the v3 notebook from Colab with:
+
+```text
+https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v003_role_conditioned_circuits.ipynb
+```
+
+The v2 notebook is available at:
 
 ```text
 https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v002_wanda_position_sanity.ipynb
@@ -54,6 +61,18 @@ MyDrive/minimum_sae_circuit_discovery/
     layer_reconstruction_sanity.csv
     baseline_comparison_results.csv
     baseline_comparison.png
+  cache/v003_role_conditioned_circuits/
+    role_feature_stats_layer8_ioi.pt
+  runs/v003_role_conditioned_circuits/trial_YYYYMMDD_HHMMSS/
+    run_manifest.json
+    smoke_role_conditioned_results.csv
+    role_conditioned_results.csv
+    role_conditioned_pareto.png
+    learned_role_mask_trace.csv
+  latest/v003_role_conditioned_circuits/
+    run_manifest.json
+    role_conditioned_results.csv
+    role_conditioned_pareto.png
 ```
 
-For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v003_pso_search`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
+For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v004_lambda_sweep`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
