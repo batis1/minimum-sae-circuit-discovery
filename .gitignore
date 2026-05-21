@@ -1,4 +1,5 @@
 .ipynb_checkpoints/
+SAEs/
 minimum_sae_circuit_discovery_outputs/
 *.pt
 *.csv
