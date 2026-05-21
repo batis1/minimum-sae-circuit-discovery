@@ -1,0 +1,6 @@
+.ipynb_checkpoints/
+minimum_sae_circuit_discovery_outputs/
+*.pt
+*.csv
+*.png
+run_manifest.json
