@@ -14,10 +14,17 @@ This repo contains Google Colab notebooks for minimum SAE circuit discovery expe
 - `minimum_sae_circuit_discovery_v006_invariant_env_gate_training.ipynb` trains one shared role-feature gate across multiple optimization environments so the search objective directly penalizes template/name instability.
 - `minimum_sae_circuit_discovery_v007_crossed_env_robust_selection.ipynb` adds a crossed auxiliary template/name optimization environment, per-example ratio loss, optimization-family robust selection, and final template-group diagnostics.
 - `minimum_sae_circuit_discovery_v008_name_invariant_counterfactuals.ipynb` targets the V7 held-out-name failure by training on counterfactual name families and ranking masks with name-stability diagnostics.
+- `minimum_sae_circuit_discovery_v009_answer_direction_normalized_circuits.ipynb` targets the V8 held-out-name failure with normalized answer-direction gradient attribution at layer 8, then uses that signal for static rankings and learned gate priors.
 
 ## Open In Colab
 
-Open the v8 notebook from Colab with:
+Open the v9 notebook from Colab with:
+
+```text
+https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v009_answer_direction_normalized_circuits.ipynb
+```
+
+The v8 notebook is available at:
 
 ```text
 https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v008_name_invariant_counterfactuals.ipynb
@@ -213,6 +220,35 @@ MyDrive/minimum_sae_circuit_discovery/
     name_counterfactual_family_heatmap.png
     name_invariant_gate_trace.csv
     selected_masks.pt
+  cache/v009_answer_direction_normalized_circuits/
+    train_role_feature_stats_layer8_ioi.pt
+    answer_direction_role_feature_stats_layer8_ioi.pt
+  runs/v009_answer_direction_normalized_circuits/trial_YYYYMMDD_HHMMSS/
+    run_manifest.json
+    smoke_answer_direction_results.csv
+    smoke_answer_direction_pareto.png
+    answer_direction_validation_results.csv
+    answer_direction_validation_summary.csv
+    answer_direction_validation_pareto.png
+    answer_direction_generalization_heatmap.png
+    answer_direction_template_group_diagnostics.csv
+    answer_direction_template_group_heatmap.png
+    answer_direction_family_diagnostics.csv
+    answer_direction_family_heatmap.png
+    answer_direction_gate_trace.csv
+    selected_masks.pt
+  latest/v009_answer_direction_normalized_circuits/
+    run_manifest.json
+    answer_direction_validation_results.csv
+    answer_direction_validation_summary.csv
+    answer_direction_validation_pareto.png
+    answer_direction_generalization_heatmap.png
+    answer_direction_template_group_diagnostics.csv
+    answer_direction_template_group_heatmap.png
+    answer_direction_family_diagnostics.csv
+    answer_direction_family_heatmap.png
+    answer_direction_gate_trace.csv
+    selected_masks.pt
 ```
 
-For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v009_cross_task_validation`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
+For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v010_cross_task_validation`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
