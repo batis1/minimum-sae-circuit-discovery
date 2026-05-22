@@ -15,10 +15,17 @@ This repo contains Google Colab notebooks for minimum SAE circuit discovery expe
 - `minimum_sae_circuit_discovery_v007_crossed_env_robust_selection.ipynb` adds a crossed auxiliary template/name optimization environment, per-example ratio loss, optimization-family robust selection, and final template-group diagnostics.
 - `minimum_sae_circuit_discovery_v008_name_invariant_counterfactuals.ipynb` targets the V7 held-out-name failure by training on counterfactual name families and ranking masks with name-stability diagnostics.
 - `minimum_sae_circuit_discovery_v009_answer_direction_normalized_circuits.ipynb` targets the V8 held-out-name failure with normalized answer-direction gradient attribution at layer 8, then uses that signal for static rankings and learned gate priors.
+- `minimum_sae_circuit_discovery_v010_global_calibrated_feature_circuits.ipynb` tests the V9 diagnosis by dropping learned role gates, fusing global activation and answer-direction rankings, sweeping larger global feature banks, and training only global soft feature gains.
 
 ## Open In Colab
 
-Open the v9 notebook from Colab with:
+Open the v10 notebook from Colab with:
+
+```text
+https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v010_global_calibrated_feature_circuits.ipynb
+```
+
+The v9 notebook is available at:
 
 ```text
 https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v009_answer_direction_normalized_circuits.ipynb
@@ -249,6 +256,37 @@ MyDrive/minimum_sae_circuit_discovery/
     answer_direction_family_heatmap.png
     answer_direction_gate_trace.csv
     selected_masks.pt
+  cache/v010_global_calibrated_feature_circuits/
+    train_role_feature_stats_layer8_ioi.pt
+    answer_direction_role_feature_stats_layer8_ioi.pt
+    smoke_role_feature_stats_layer8_ioi.pt
+    smoke_answer_direction_role_feature_stats_layer8_ioi.pt
+  runs/v010_global_calibrated_feature_circuits/trial_YYYYMMDD_HHMMSS/
+    run_manifest.json
+    smoke_global_calibrated_results.csv
+    smoke_global_calibrated_pareto.png
+    global_calibrated_validation_results.csv
+    global_calibrated_validation_summary.csv
+    global_calibrated_validation_pareto.png
+    global_calibrated_generalization_heatmap.png
+    global_calibrated_template_group_diagnostics.csv
+    global_calibrated_template_group_heatmap.png
+    global_calibrated_family_diagnostics.csv
+    global_calibrated_family_heatmap.png
+    global_soft_gain_trace.csv
+    selected_masks.pt
+  latest/v010_global_calibrated_feature_circuits/
+    run_manifest.json
+    global_calibrated_validation_results.csv
+    global_calibrated_validation_summary.csv
+    global_calibrated_validation_pareto.png
+    global_calibrated_generalization_heatmap.png
+    global_calibrated_template_group_diagnostics.csv
+    global_calibrated_template_group_heatmap.png
+    global_calibrated_family_diagnostics.csv
+    global_calibrated_family_heatmap.png
+    global_soft_gain_trace.csv
+    selected_masks.pt
 ```
 
-For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v010_cross_task_validation`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
+For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v011_cross_task_validation`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
