@@ -16,8 +16,15 @@ This repo contains Google Colab notebooks for minimum SAE circuit discovery expe
 - `minimum_sae_circuit_discovery_v008_name_invariant_counterfactuals.ipynb` targets the V7 held-out-name failure by training on counterfactual name families and ranking masks with name-stability diagnostics.
 - `minimum_sae_circuit_discovery_v009_answer_direction_normalized_circuits.ipynb` targets the V8 held-out-name failure with normalized answer-direction gradient attribution at layer 8, then uses that signal for static rankings and learned gate priors.
 - `minimum_sae_circuit_discovery_v010_global_calibrated_feature_circuits.ipynb` tests the V9 diagnosis by dropping learned role gates, fusing global activation and answer-direction rankings, sweeping larger global feature banks, and training only global soft feature gains.
+- `minimum_sae_circuit_discovery_v011_invariant_feature_circuit_benchmark.ipynb` reframes the project as a publishable robustness benchmark: it builds environment-specific feature rankings, selects features that are stable across optimization environments, and tests whether invariant masks generalize better than pooled or single-environment circuits.
 
 ## Open In Colab
+
+Open the v11 notebook from Colab with:
+
+```text
+https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v011_invariant_feature_circuit_benchmark.ipynb
+```
 
 Open the v10 notebook from Colab with:
 
@@ -287,6 +294,45 @@ MyDrive/minimum_sae_circuit_discovery/
     global_calibrated_family_heatmap.png
     global_soft_gain_trace.csv
     selected_masks.pt
+  cache/v011_invariant_feature_circuit_benchmark/
+    pooled_train_role_feature_stats_layer8_ioi.pt
+    pooled_train_answer_direction_role_feature_stats_layer8_ioi.pt
+    train_core_role_feature_stats_layer8_ioi.pt
+    train_core_answer_direction_role_feature_stats_layer8_ioi.pt
+    train_template_aug_role_feature_stats_layer8_ioi.pt
+    train_template_aug_answer_direction_role_feature_stats_layer8_ioi.pt
+    train_name_aug_role_feature_stats_layer8_ioi.pt
+    train_name_aug_answer_direction_role_feature_stats_layer8_ioi.pt
+    train_crossed_aug_role_feature_stats_layer8_ioi.pt
+    train_crossed_aug_answer_direction_role_feature_stats_layer8_ioi.pt
+    name_cf_train_role_feature_stats_layer8_ioi.pt
+    name_cf_train_answer_direction_role_feature_stats_layer8_ioi.pt
+  runs/v011_invariant_feature_circuit_benchmark/trial_YYYYMMDD_HHMMSS/
+    run_manifest.json
+    smoke_invariant_feature_results.csv
+    smoke_invariant_feature_pareto.png
+    invariant_feature_validation_results.csv
+    invariant_feature_validation_summary.csv
+    invariant_feature_validation_pareto.png
+    invariant_feature_generalization_heatmap.png
+    invariant_feature_template_group_diagnostics.csv
+    invariant_feature_template_group_heatmap.png
+    invariant_feature_family_diagnostics.csv
+    invariant_feature_family_heatmap.png
+    invariant_feature_stability_trace.csv
+    selected_masks.pt
+  latest/v011_invariant_feature_circuit_benchmark/
+    run_manifest.json
+    invariant_feature_validation_results.csv
+    invariant_feature_validation_summary.csv
+    invariant_feature_validation_pareto.png
+    invariant_feature_generalization_heatmap.png
+    invariant_feature_template_group_diagnostics.csv
+    invariant_feature_template_group_heatmap.png
+    invariant_feature_family_diagnostics.csv
+    invariant_feature_family_heatmap.png
+    invariant_feature_stability_trace.csv
+    selected_masks.pt
 ```
 
-For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v011_cross_task_validation`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
+For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v012_cross_task_validation`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
