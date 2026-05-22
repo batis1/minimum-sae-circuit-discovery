@@ -11,10 +11,17 @@ This repo contains Google Colab notebooks for minimum SAE circuit discovery expe
 - `minimum_sae_circuit_discovery_v003_role_conditioned_circuits.ipynb` tests semantic-role-conditioned SAE circuits, where masks select `role x feature` nodes instead of global features.
 - `minimum_sae_circuit_discovery_v004_soft_gate_threshold_sweep.ipynb` evaluates learned role-feature gates directly with soft top-K and probability-threshold sweeps.
 - `minimum_sae_circuit_discovery_v005_robust_soft_gate_validation.ipynb` validates the learned soft-gate result across train, in-distribution test, held-out template, held-out name, and combined held-out splits with random and role-shuffled controls.
+- `minimum_sae_circuit_discovery_v006_invariant_env_gate_training.ipynb` trains one shared role-feature gate across multiple optimization environments so the search objective directly penalizes template/name instability.
 
 ## Open In Colab
 
-Open the v5 notebook from Colab with:
+Open the v6 notebook from Colab with:
+
+```text
+https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v006_invariant_env_gate_training.ipynb
+```
+
+The v5 notebook is available at:
 
 ```text
 https://colab.research.google.com/github/batis1/minimum-sae-circuit-discovery/blob/main/minimum_sae_circuit_discovery_v005_robust_soft_gate_validation.ipynb
@@ -120,6 +127,26 @@ MyDrive/minimum_sae_circuit_discovery/
     generalization_heatmap.png
     learned_soft_gate_trace.csv
     selected_masks.pt
+  cache/v006_invariant_env_gate_training/
+    train_role_feature_stats_layer8_ioi.pt
+  runs/v006_invariant_env_gate_training/trial_YYYYMMDD_HHMMSS/
+    run_manifest.json
+    smoke_invariant_validation_results.csv
+    smoke_invariant_validation_pareto.png
+    invariant_validation_results.csv
+    invariant_validation_summary.csv
+    invariant_validation_pareto.png
+    invariant_generalization_heatmap.png
+    invariant_gate_trace.csv
+    selected_masks.pt
+  latest/v006_invariant_env_gate_training/
+    run_manifest.json
+    invariant_validation_results.csv
+    invariant_validation_summary.csv
+    invariant_validation_pareto.png
+    invariant_generalization_heatmap.png
+    invariant_gate_trace.csv
+    selected_masks.pt
 ```
 
-For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v006_cross_task_validation`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
+For a new experiment version, edit `RUN_VERSION` in the notebook, for example `v007_cross_task_validation`. Each notebook run automatically gets a timestamped `TRIAL_ID`, so failed or weak trials do not overwrite earlier results.
